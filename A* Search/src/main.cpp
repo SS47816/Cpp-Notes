@@ -53,14 +53,12 @@ vector<vector<State>> Search(vector<vector<State>> grid, int start[2], int goal[
   return vector<vector<State>> {};
 }
 
-
 string CellString(State cell) {
   switch(cell) {
     case State::kObstacle: return "⛰️   ";
-    default: return "0   "; 
+    default: return "0   ";
   }
 }
-
 
 void PrintBoard(const vector<vector<State>> board) {
   for (int i = 0; i < board.size(); i++) {
@@ -70,7 +68,6 @@ void PrintBoard(const vector<vector<State>> board) {
     cout << "\n";
   }
 }
-
 
 int main() {
   // TODO: Declare "init" and "goal" arrays with values {0, 0} and {4, 5} respectively.
