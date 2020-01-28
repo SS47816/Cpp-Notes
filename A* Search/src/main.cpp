@@ -80,6 +80,17 @@ int Heuristic(int x1, int y1, int x2, int y2)
   return abs(x2 - x1) + abs(y2 - y1);
 }
 
+// TODO: Write CheckValidCell here. Check that the
+// cell is on the grid and not an obstacle (i.e. equals kEmpty).
+bool CheckValidCell(int x, int y, const vector<vector<State>> &grid) {
+  bool on_grid_x = (x >= 0 && x < grid.size());
+  bool on_grid_y = (y >= 0 && y < grid[0].size());
+  if (on_grid_x && on_grid_y) {
+    return grid[x][y] == State::kEmpty;
+  }
+  return false;
+}
+
 /** 
  * Add a node to the open list and mark it as open. 
  */
@@ -121,7 +132,7 @@ vector<vector<State>> Search(vector<vector<State>> grid, int init[2], int goal[2
     if (x == goal[0] && y == goal[1]) {
       return grid;
     }
-    
+
     // If we're not done, expand search to current node's neighbors. This step will be completed in a later quiz.
     // ExpandNeighbors
 
