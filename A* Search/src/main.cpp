@@ -101,6 +101,24 @@ void AddToOpen(int x, int y, int g, int h, vector<vector<int>> &openlist, vector
   grid[x][y] = State::kClosed;
 }
 
+void ExpandNeighbors(const vector<int> current, const vector<vector<int>> &open, const vector<vector<State>> &grid, const int goal[2]) {
+  const int x = current[0];
+  const int y = current[1];
+  const int g = current[2];
+  const int h = current[3];
+
+  const int delta[4][2]{{-1, 0}, {0, -1}, {1,0}, {0,1}};
+  for (int i = 0; i < 4; i++) {
+    const int x2 = x + delta[i][0];
+    const int y2 = y + delta[i][1];
+    if (CheckValidCell(x2, y2, grid)) {
+      const g2 = g + 1;
+      const h2 = Heuristic(x2, y2, goal[0], goal[1]);
+      AddToOpen(x2, y2, g2, h2, open, grid);
+    }
+  }
+}
+
 /** 
  * Implementation of A* search algorithm
  */
