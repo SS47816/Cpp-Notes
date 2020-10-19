@@ -1,0 +1,32 @@
+==891== Memcheck, a memory error detector
+==891== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==891== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==891== Command: /home/workspace/a.out
+==891== Parent PID: 791
+==891== 
+==891== 
+==891== HEAP SUMMARY:
+==891==     in use at exit: 72,744 bytes in 2 blocks
+==891==   total heap usage: 2 allocs, 0 frees, 72,744 bytes allocated
+==891== 
+==891== 40 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==891==    at 0x4C2E80F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==891==    by 0x400588: main (in /home/workspace/a.out)
+==891== 
+==891== 72,704 bytes in 1 blocks are still reachable in loss record 2 of 2
+==891==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==891==    by 0x4EC93B5: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==891==    by 0x40106C9: call_init.part.0 (dl-init.c:72)
+==891==    by 0x40107DA: call_init (dl-init.c:30)
+==891==    by 0x40107DA: _dl_init (dl-init.c:120)
+==891==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==891== 
+==891== LEAK SUMMARY:
+==891==    definitely lost: 40 bytes in 1 blocks
+==891==    indirectly lost: 0 bytes in 0 blocks
+==891==      possibly lost: 0 bytes in 0 blocks
+==891==    still reachable: 72,704 bytes in 1 blocks
+==891==         suppressed: 0 bytes in 0 blocks
+==891== 
+==891== For counts of detected and suppressed errors, rerun with: -v
+==891== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
